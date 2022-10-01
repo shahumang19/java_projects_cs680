@@ -27,3 +27,4 @@ bin/
 lib/
 .DS_Store
 *.iml
+TEST-*.txt
