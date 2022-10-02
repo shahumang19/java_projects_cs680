@@ -1,0 +1,56 @@
+<!-- To run this build script, type: 
+
+     ant -f build-prime.xml
+
+     on a shell. 
+-->
+<project name="calc" basedir="."  default="clean">	
+	<property name="src" location="src" />
+	<property name="bin" location="bin" />
+	
+	<path id="classpath">
+		<pathelement location="bin" />
+		<pathelement location="lib/junit-jupiter-5.9.1.jar" />
+		<pathelement location="lib/junit-jupiter-api-5.9.1.jar" />
+		<pathelement location="lib/junit-jupiter-engine-5.9.1.jar" />
+		<pathelement location="lib/junit-jupiter-migrationsupport-5.9.1.jar" />
+		<pathelement location="lib/junit-jupiter-params-5.9.1.jar" />
+		<pathelement location="lib/junit-platform-commons-1.9.1.jar" />
+		<pathelement location="lib/junit-platform-engine-1.9.1.jar" />
+		<pathelement location="lib/junit-platform-launcher-1.9.1.jar" />
+		<pathelement location="lib/opentest4j-1.2.0.jar" />
+		<pathelement location="lib/apiguardian-api-1.1.2.jar" />
+	</path>
+	
+	<target name="init">
+		<mkdir dir="${bin}"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
+			<classpath refid="classpath"/>
+			<!-- <include name="edu/umb/cs680/hw00/Calculator.java"/> -->
+			 	<include name="edu/umb/cs680/hw01/*.java"/>
+		</javac>
+	</target>
+
+	<target name="run" depends="test">
+		<java classname="edu.umb.cs680.hw01.PrimeGenerator"
+				classpathref="classpath"  
+				fork="true"/>
+	</target>
+
+	<target name="test" depends="compile">
+		<junitlauncher haltOnFailure="true" printSummary="true" >
+			<classpath refid="classpath"/>
+			<test name="edu.umb.cs680.hw01.PrimeGeneratorTest"/>
+			<listener type="legacy-plain" sendSysOut="false"/>
+		</junitlauncher>
+	</target>
+	
+	<target name="clean" depends="run">
+		<delete includeemptydirs="true">
+			<fileset dir="${bin}/edu/umb/cs680/hw01" includes="**/*"/>
+		</delete>
+	</target>
+</project>
