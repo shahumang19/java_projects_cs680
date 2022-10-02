@@ -121,10 +121,10 @@ public class CalculatorTest{
     @RepeatedTest(10)
     public void multiplyCheckNullInteger(){
         Random rand = new Random();
-        Integer rand_int1 = rand.nextInt(50000);
-        Integer rand_int2 = rand.nextInt(50000);
+        Integer randInt1 = rand.nextInt(50000);
+        Integer randInt2 = rand.nextInt(50000);
 
-        float result = cut.multiply(rand_int1, rand_int2);
+        float result = cut.multiply(randInt1, randInt2);
 
         assertNotNull(result);
     }
@@ -132,10 +132,10 @@ public class CalculatorTest{
     @RepeatedTest(10)
     public void multiplyCheckNullFloat(){
         Random rand = new Random();
-        Float rand_float1 = rand.nextFloat();
-        Float rand_float2 = rand.nextFloat();
+        Float randFloat1 = rand.nextFloat();
+        Float randFloat2 = rand.nextFloat();
 
-        float result = cut.multiply(rand_float1, rand_float2);
+        float result = cut.multiply(randFloat1, randFloat2);
 
         assertNotNull(result);
     }
@@ -143,13 +143,13 @@ public class CalculatorTest{
     @RepeatedTest(10)
     public void divideCheckNullInteger(){
         Random rand = new Random();
-        Integer rand_int1 = rand.nextInt(50000);
-        Integer rand_int2 = rand.nextInt(50000);
+        Integer randInt1 = rand.nextInt(50000);
+        Integer randInt2 = rand.nextInt(50000);
 
         // Ensuring division by value greater than 0
-        rand_int2 = rand_int2 + 1;
+        randInt2 = randInt2 + 1;
 
-        float result = cut.divide(rand_int1, rand_int2);
+        float result = cut.divide(randInt1, randInt2);
 
         assertNotNull(result);
     }
@@ -157,13 +157,13 @@ public class CalculatorTest{
     @RepeatedTest(10)
     public void divisionCheckNullFloat(){
         Random rand = new Random();
-        Float rand_float1 = rand.nextFloat();
-        Float rand_float2 = rand.nextFloat();
+        Float randFloat1 = rand.nextFloat();
+        Float randFloat2 = rand.nextFloat();
 
         // Ensuring division by value greater than 0
-        rand_float2 = rand_float2 + 0.1f;
+        randFloat2 = randFloat2 + 0.1f;
 
-        float result = cut.divide(rand_float1, rand_float2);
+        float result = cut.divide(randFloat1, randFloat2);
 
         assertNotNull(result);
     }
