@@ -1,6 +1,6 @@
 <!-- To run this build script, type: 
 
-     ant -f build-calc.xml
+     ant -f hw00.xml
 
      on a shell. 
 -->

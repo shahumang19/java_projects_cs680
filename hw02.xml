@@ -1,6 +1,6 @@
 <!-- To run this build script, type: 
 
-     ant -f build-prime.xml
+     ant -f hw02.xml
 
      on a shell. 
 -->
