@@ -30,17 +30,17 @@
 	<target name="compile" depends="resolve">
 		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
-			 	<include name="edu/umb/cs680/hw01/*.java"/>
+			 	<include name="edu/umb/cs680/hw02/*.java"/>
 		</javac>
 
 		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
-			 	<include name="edu/umb/cs680/hw01/*.java"/>
+			 	<include name="edu/umb/cs680/hw02/*.java"/>
 		</javac>
 	</target>
 
 	<target name="run" depends="test">
-		<java classname="edu.umb.cs680.hw01.PrimeGenerator"
+		<java classname="edu.umb.cs680.hw02.PrimeGenerator"
 				classpathref="classpath"  
 				fork="true"/>
 	</target>
@@ -50,7 +50,7 @@
 			<classpath refid="classpath"/>
 			<testclasses outputdir="test">
 				<fileset dir="${test.bin}">
-					<include name="edu/umb/cs680/hw01/*Test.class"/>
+					<include name="edu/umb/cs680/hw02/*Test.class"/>
 				</fileset>
 				<listener type="legacy-plain" sendSysOut="true"/>
 	        </testclasses>
@@ -59,8 +59,8 @@
 	
 	<target name="clean" depends="run">
 		<delete includeemptydirs="true">
-			<fileset dir="${bin}/edu/umb/cs680/hw01" includes="**/*"/>
-			<fileset dir="${test.bin}/edu/umb/cs680/hw01" includes="**/*"/>
+			<fileset dir="${bin}/edu/umb/cs680/hw02" includes="**/*"/>
+			<fileset dir="${test.bin}/edu/umb/cs680/hw02" includes="**/*"/>
 		</delete>
 	</target>
 </project>
