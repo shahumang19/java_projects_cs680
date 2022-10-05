@@ -4,32 +4,38 @@
 
      on a shell. 
 -->
-<project name="calc" basedir="."  default="clean">	
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="calc" basedir="."  default="clean">	
 	<property name="src" location="src" />
 	<property name="bin" location="bin" />
+	<property name="test.src" location="test/src" />
+	<property name="test.bin" location="test/bin" />
+	<property name="ivy.lib" value="lib"/>
 	
 	<path id="classpath">
-		<pathelement location="bin" />
-		<pathelement location="lib/junit-jupiter-5.9.1.jar" />
-		<pathelement location="lib/junit-jupiter-api-5.9.1.jar" />
-		<pathelement location="lib/junit-jupiter-engine-5.9.1.jar" />
-		<pathelement location="lib/junit-jupiter-migrationsupport-5.9.1.jar" />
-		<pathelement location="lib/junit-jupiter-params-5.9.1.jar" />
-		<pathelement location="lib/junit-platform-commons-1.9.1.jar" />
-		<pathelement location="lib/junit-platform-engine-1.9.1.jar" />
-		<pathelement location="lib/junit-platform-launcher-1.9.1.jar" />
-		<pathelement location="lib/opentest4j-1.2.0.jar" />
-		<pathelement location="lib/apiguardian-api-1.1.2.jar" />
+		<pathelement location="${bin}" />
+		<pathelement location="${test.bin}" />
+		<fileset dir="${ivy.lib}"/>
 	</path>
 	
 	<target name="init">
 		<mkdir dir="${bin}"/>
+		<mkdir dir="${test.bin}"/>
+		<mkdir dir="${ivy.lib}"/>
+	</target>
+
+	<target name="resolve" depends="init">
+		<ivy:retrieve/>
 	</target>
 	
-	<target name="compile" depends="init">
+	<target name="compile" depends="resolve">
 		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
 			<!-- <include name="edu/umb/cs680/hw00/Calculator.java"/> -->
+			 	<include name="edu/umb/cs680/hw00/*.java"/>
+		</javac>
+
+		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="no">
+			<classpath refid="classpath"/>
 			 	<include name="edu/umb/cs680/hw00/*.java"/>
 		</javac>
 	</target>
@@ -43,14 +49,19 @@
 	<target name="test" depends="compile">
 		<junitlauncher haltOnFailure="true" printSummary="true" >
 			<classpath refid="classpath"/>
-			<test name="edu.umb.cs680.hw00.CalculatorTest"/>
-			<listener type="legacy-plain" sendSysOut="false"/>
+			<testclasses outputdir="test">
+				<fileset dir="${test.bin}">
+					<include name="edu/umb/cs680/hw00/*Test.class"/>
+				</fileset>
+				<listener type="legacy-plain" sendSysOut="true"/>
+	        </testclasses>
 		</junitlauncher>
 	</target>
 	
 	<target name="clean" depends="run">
 		<delete includeemptydirs="true">
 			<fileset dir="${bin}/edu/umb/cs680/hw00" includes="**/*"/>
+			<fileset dir="${test.bin}/edu/umb/cs680/hw00" includes="**/*"/>
 		</delete>
 	</target>
 </project>
