@@ -14,13 +14,6 @@ public class PrimeGeneratorTest{
     }
 
     @Test
-    public void isEvenInsertNull(){
-        Long num = null;
-        PrimeGenerator gen = new PrimeGenerator(1L, 10L);
-        assertTrue(gen.isEven(num));
-    }
-
-    @Test
     public void isEvenNumber0(){
         PrimeGenerator gen = new PrimeGenerator(1L, 10L);
         assertTrue(gen.isEven(0));
@@ -54,23 +47,6 @@ public class PrimeGeneratorTest{
     public void isPrimeCheckNegative5(){
         PrimeGenerator gen = new PrimeGenerator(1L, 10L);
         assertFalse(gen.isPrime(-5));
-    }
-
-    @Test
-    public void isPrimeInsertNull(){
-        Long num = null;
-        PrimeGenerator gen = new PrimeGenerator(1L, 10L);
-        assertFalse(gen.isPrime(num));
-    }
-
-    @Test
-    public void generatePrimeInsertNull(){
-        Long num1 = null;
-        Long num2 = null;
-        PrimeGenerator gen = new PrimeGenerator(num1, num2);
-        gen.generatePrimes();
-        LinkedList<Long> actual = gen.getPrimes();
-        assertNotNull(actual);
     }
 
     @Test
