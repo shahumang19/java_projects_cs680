@@ -21,6 +21,7 @@
 		<mkdir dir="${bin}"/>
 		<mkdir dir="${test.bin}"/>
 		<mkdir dir="${ivy.lib}"/>
+		<echo message="CLASSPATH: ${toString:classpath}" />
 	</target>
 
 	<target name="resolve" depends="init">
