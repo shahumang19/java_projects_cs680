@@ -16,7 +16,7 @@ public class PrintJobExecutorTest {
 
         User user1 = new User(1, "Sheldon Cooper", "scooper2003");
         SecurityContext ctx = new SecurityContext(user1);
-        ex.execute(job, new EncryptedString(user1.getUsername(), "1234"), ctx);
+        assertTrue(ex.execute(job, new EncryptedString(user1.getUsername(), "1234"), ctx));
     }
 
     @Test
@@ -30,7 +30,6 @@ public class PrintJobExecutorTest {
             ex.execute(job, new EncryptedString(user1.getUsername(), "wrong_password"), ctx);
             fail();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             assertTrue(e.getMessage().equals("Invalid Credentials!!!"));
         }
     }
@@ -49,7 +48,9 @@ public class PrintJobExecutorTest {
 
         User user2 = new User(2, "Bruce Wayne", "batman1234");
         SecurityContext ctx2 = new SecurityContext(user2);
-        ex2.execute(job2, new EncryptedString(user2.getUsername(), "bat123"), ctx2);
+
+        // Asserting that PrintJobExecutor works with 2nd login
+        assertTrue(ex2.execute(job2, new EncryptedString(user2.getUsername(), "bat123"), ctx2));
     }
 
     @Test
@@ -61,6 +62,7 @@ public class PrintJobExecutorTest {
         User user1 = new User(1, "Sheldon Cooper", "scooper2003");
         SecurityContext ctx1 = new SecurityContext(user1);
         ex1.execute(job1, new EncryptedString(user1.getUsername(), "1234"), ctx1);
-        ex1.execute(job2, new EncryptedString(user1.getUsername(), "1234"), ctx1);
+        // Asserting that PrintJobExecutor works with 2 jobs
+        assertTrue(ex1.execute(job2, new EncryptedString(user1.getUsername(), "1234"), ctx1));
     }
 }
