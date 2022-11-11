@@ -1,6 +1,8 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs.util;
 
 import java.util.LinkedList;
+
+import edu.umb.cs680.hw09.fs.*;
 
 public class FileSearchVisitor implements FSVisitor {
 

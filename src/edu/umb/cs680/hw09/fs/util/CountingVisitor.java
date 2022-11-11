@@ -1,4 +1,6 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs.util;
+
+import edu.umb.cs680.hw09.fs.*;
 
 public class CountingVisitor implements FSVisitor {
 

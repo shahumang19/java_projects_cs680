@@ -1,10 +1,13 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs.util;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.*;
+
+import edu.umb.cs680.hw09.fs.TestFixtureInitializer;
+import edu.umb.cs680.hw09.fs.*;
 
 public class FileCrawlingVisitorTest {
     private static FileSystem fs;

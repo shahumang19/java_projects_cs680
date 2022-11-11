@@ -1,6 +1,8 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs;
 
 import java.util.Iterator;
+
+import edu.umb.cs680.hw09.fs.util.FSVisitor;
 
 public class File extends FSElement {
 

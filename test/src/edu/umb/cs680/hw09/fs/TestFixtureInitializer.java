@@ -1,4 +1,4 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs;
 
 public class TestFixtureInitializer {
     public static FileSystem createFS(){

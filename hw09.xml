@@ -31,17 +31,19 @@
 	<target name="compile" depends="resolve">
 		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
-			 	<include name="edu/umb/cs680/hw09/*.java"/>
+			 	<include name="edu/umb/cs680/hw09/fs/*/*.java"/>
+				<include name="edu/umb/cs680/hw09/fs/*.java"/>
 		</javac>
 
 		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
-			 	<include name="edu/umb/cs680/hw09/*.java"/>
+			 	<include name="edu/umb/cs680/hw09/fs/*.java"/>
+				<include name="edu/umb/cs680/hw09/fs/*/*.java"/>
 		</javac>
 	</target>
 
 	<target name="run" depends="test">
-		<java classname="edu.umb.cs680.hw09.Main" classpathref="classpath" fork="true"/>
+		<java classname="edu.umb.cs680.hw09.fs.Main" classpathref="classpath" fork="true"/>
 	</target>
 
 	<target name="test" depends="compile">
@@ -49,7 +51,8 @@
 			<classpath refid="classpath"/>
 			<testclasses outputdir="test">
 				<fileset dir="${test.bin}">
-					<include name="edu/umb/cs680/hw09/*Test.class"/>
+					<include name="edu/umb/cs680/hw09/fs/*Test.class"/>
+					<include name="edu/umb/cs680/hw09/fs/util/*Test.class"/>
 				</fileset>
 				<listener type="legacy-plain" sendSysOut="true"/>
 	        </testclasses>
@@ -58,8 +61,10 @@
 	
 	<target name="clean" depends="run">
 		<delete includeemptydirs="true">
-			<fileset dir="${bin}/edu/umb/cs680/hw09" includes="**/*"/>
-			<fileset dir="${test.bin}/edu/umb/cs680/hw09" includes="**/*"/>
+			<fileset dir="${bin}/edu/umb/cs680/hw09/fs/" includes="**/*"/>
+			<fileset dir="${bin}/edu/umb/cs680/hw09/fs/util/" includes="**/*"/>
+			<fileset dir="${test.bin}/edu/umb/cs680/hw09/fs/" includes="**/*"/>
+			<fileset dir="${test.bin}/edu/umb/cs680/hw09/fs/util/" includes="**/*"/>
 		</delete>
 	</target>
 </project>

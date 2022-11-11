@@ -1,7 +1,10 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs.util;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
+
+import edu.umb.cs680.hw09.fs.*;
+import edu.umb.cs680.hw09.fs.TestFixtureInitializer;
 
 public class CountingVisitorTest {
     private static FileSystem fs;

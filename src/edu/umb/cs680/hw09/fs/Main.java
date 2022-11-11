@@ -1,4 +1,8 @@
-package edu.umb.cs680.hw09;
+package edu.umb.cs680.hw09.fs;
+
+import edu.umb.cs680.hw09.fs.util.CountingVisitor;
+import edu.umb.cs680.hw09.fs.util.FileCrawlingVisitor;
+import edu.umb.cs680.hw09.fs.util.FileSearchVisitor;
 
 public class Main {
     public static void main(String[] args) {
