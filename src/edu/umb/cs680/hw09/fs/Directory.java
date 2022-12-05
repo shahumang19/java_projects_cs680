@@ -3,8 +3,6 @@ package edu.umb.cs680.hw09.fs;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import edu.umb.cs680.hw09.fs.util.FSVisitor;
-
 public class Directory extends FSElement {
     LinkedList<FSElement> children;
 
