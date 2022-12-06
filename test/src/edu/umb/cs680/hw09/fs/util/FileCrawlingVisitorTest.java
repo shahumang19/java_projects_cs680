@@ -51,4 +51,9 @@ public class FileCrawlingVisitorTest {
 
         assertArrayEquals(expected, actual);
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
+    }
 }

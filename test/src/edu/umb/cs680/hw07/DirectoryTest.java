@@ -54,7 +54,7 @@ public class DirectoryTest {
     @Test
     public void verifyRootDirectoryEquality(){
         String[] expected = {"root", "0", "null", "3"};
-        Directory root = fs.getRootDirectories().get(0);
+        Directory root = Directory.searchAndReturnFirstDirectory(fs, "root");
         assertArrayEquals(expected, dirToStringArray(root));
     }
 

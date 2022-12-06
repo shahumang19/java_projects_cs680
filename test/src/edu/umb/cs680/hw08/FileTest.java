@@ -54,4 +54,9 @@ public class FileTest {
         File x = File.searchAndReturnFirstFile(fs, "a");
         assertArrayEquals(expected, fileToStringArray(x));
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
+    }
 }

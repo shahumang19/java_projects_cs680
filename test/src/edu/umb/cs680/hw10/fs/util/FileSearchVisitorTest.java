@@ -77,4 +77,9 @@ public class FileSearchVisitorTest {
             assertTrue(e instanceof RuntimeException);
         }
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
+    }
 }

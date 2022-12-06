@@ -8,8 +8,8 @@ public class DirectoryTest {
 
     private static FileSystem fs;
 
-    @BeforeAll
-    public static void setUpFS(){
+    @BeforeEach
+    public void setUpFS(){
         fs = TestFixtureInitializer.createFS();
     }
 
@@ -66,7 +66,7 @@ public class DirectoryTest {
     }
 
     @Test
-    public void verifyRootDirectoryTotalSize(){
+    public void verifyDirectoryTotalSize(){
         int expected = 570;
         Directory root = Directory.searchAndReturnFirstDirectory(fs, "root");
         assertEquals(expected, root.getTotalSize());
@@ -102,5 +102,10 @@ public class DirectoryTest {
             actual[index++] = element.getName();
         }
         assertArrayEquals(expected, actual);
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
     }
 }

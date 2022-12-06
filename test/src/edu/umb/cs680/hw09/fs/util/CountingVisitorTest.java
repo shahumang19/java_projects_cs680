@@ -35,4 +35,9 @@ public class CountingVisitorTest {
         int expected = 2;
         assertEquals(expected, visitor.getLinkNum());
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
+    }
 }

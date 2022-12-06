@@ -51,4 +51,9 @@ public class FileSearchVisitorTest {
 
         assertEquals(0, files.size());
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
+    }
 }

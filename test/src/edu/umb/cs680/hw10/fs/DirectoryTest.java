@@ -103,4 +103,9 @@ public class DirectoryTest {
         }
         assertArrayEquals(expected, actual);
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
+    }
 }

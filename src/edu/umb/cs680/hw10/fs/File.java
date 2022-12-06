@@ -3,7 +3,6 @@ package edu.umb.cs680.hw10.fs;
 import java.util.Iterator;
 
 import edu.umb.cs680.hw10.Authentication.SecurityContext;
-import edu.umb.cs680.hw10.fs.util.FSVisitor;
 
 public class File extends FSElement {
 

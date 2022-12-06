@@ -47,7 +47,12 @@ public class LinkTest {
     public void verifyELinkTargetSize(){
         File expected = File.searchAndReturnFirstFile(fs, "x");
         Link l = Link.searchAndReturnFirstLink(fs, "e");
-        l.setSize(45);
+        l.getTarget().setSize(45);
         assertEquals(expected.getSize(), l.getTarget().getSize());
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        fs.getRootDirectories().clear();
     }
 }

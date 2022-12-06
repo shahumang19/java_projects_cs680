@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import edu.umb.cs680.hw10.Authentication.SecurityContext;
-import edu.umb.cs680.hw10.fs.util.FSVisitor;
 
 public class Directory extends FSElement {
     LinkedList<FSElement> children;

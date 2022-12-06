@@ -20,4 +20,9 @@ public class FileSystemTest {
 
         assertSame(dir, fs.getRootDirectories().getLast());
     }
+
+    @AfterAll
+    public static void cleanUp() {
+        FileSystem.getFileSystem().getRootDirectories().clear();
+    }
 }
