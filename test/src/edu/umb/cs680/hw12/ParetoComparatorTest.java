@@ -10,7 +10,7 @@ import org.junit.jupiter.api.*;
 
 public class ParetoComparatorTest {
     @Test
-    public void verifyPriceSort(){
+    public void verifyParetoSort(){
         Car instance1 = new Car("Mercedes‑Benz", "A-Class", 2022, 25, 34000.0F); // 0 
         Car instance2 = new Car("Mercedes‑Benz", "A-Class", 2018, 15, 68000.0F); // 2 (1, 4)
         Car instance3 = new Car("Audi", "C-Class", 2021, 20, 38000.0F);          // 1 (1)
@@ -39,7 +39,7 @@ public class ParetoComparatorTest {
     }
 
     @Test
-    public void verifyEqualPriceSort(){
+    public void verifyEqualParetoSort(){
         // Test to ensure the below condition
         // A’s objective values are superior than B’s in at least one objective.
 

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.*;
 
 public class YearComparatorTest {
     @Test
-    public void verifyPriceSort(){
+    public void verifyYearSort(){
         Car instance1 = new Car("Mercedes‑Benz", "A-Class", 2022, 25, 34000.0F);
         Car instance2 = new Car("Mercedes‑Benz", "A-Class", 2018, 40, 68000.0F);
         Car instance3 = new Car("Audi", "C-Class", 2021, 20, 38000.0F);
@@ -35,7 +35,7 @@ public class YearComparatorTest {
     }
 
     @Test
-    public void verifyEqualPriceSort(){
+    public void verifyEqualYearSort(){
         Car instance1 = new Car("Mercedes‑Benz", "A-Class", 2022, 25, 34000.0F);
         Car instance2 = new Car("Mercedes‑Benz", "A-Class", 2022, 40, 34000.0F);
         Car instance3 = new Car("Audi", "C-Class", 2022, 20, 34000.0F);
