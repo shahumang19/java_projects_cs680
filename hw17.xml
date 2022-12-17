@@ -31,17 +31,19 @@
 	<target name="compile" depends="resolve">
 		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
-			 	<include name="edu/umb/cs680/hw17/StockApp/*.java"/>
+				<include name="edu/umb/cs680/hw17/*.java"/>
+			 	<include name="edu/umb/cs680/hw17/*/*.java"/>
 		</javac>
 
 		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="no">
 			<classpath refid="classpath"/>
-			 	<include name="edu/umb/cs680/hw17/StockApp/*.java"/>
+			 	<include name="edu/umb/cs680/hw17/*/*.java"/>
 		</javac>
 	</target>
 
 	<target name="run" depends="test">
 		<java classname="edu.umb.cs680.hw17.StockApp.StockQuoteObservable" classpathref="classpath" fork="true"/>
+		<java classname="edu.umb.cs680.hw17.DJIAApp.DJIAQuoteObservable" classpathref="classpath" fork="true"/>
 	</target>
 
 	<target name="test" depends="compile">
@@ -49,7 +51,7 @@
 			<classpath refid="classpath"/>
 			<testclasses outputdir="test">
 				<fileset dir="${test.bin}">
-					<include name="edu/umb/cs680/hw17/StockApp/*Test.class"/>
+					<include name="edu/umb/cs680/hw17/*/*Test.class"/>
 				</fileset>
 				<listener type="legacy-plain" sendSysOut="true"/>
 	        </testclasses>

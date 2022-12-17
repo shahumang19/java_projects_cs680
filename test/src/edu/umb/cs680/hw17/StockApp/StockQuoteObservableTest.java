@@ -36,7 +36,7 @@ public class StockQuoteObservableTest {
 	}
 
     @Test
-	public void verifyLEObserverCount() {
+	public void verifyLEObserver() {
 		StockQuoteObservable observable = new StockQuoteObservable();
 
         Observer<StockEvent> obs1 = (Observable<StockEvent> sender, StockEvent arg)->{System.out.println("[LE Observer] - Ticker("+arg.getTicker()+") - Quote("+arg.getQuote()+")");};
