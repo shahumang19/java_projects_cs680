@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Observable;
-import java.util.Observer;
+import edu.umb.cs680.hw17.Observable;
+import edu.umb.cs680.hw17.Observer;
 
 public class StockQuoteObservableTest {
     
@@ -30,9 +30,9 @@ public class StockQuoteObservableTest {
         assertEquals(12.00, observable.getHashmap().get("Stock1"));
         assertEquals(11.20, observable.getHashmap().get("Stock2"));
 
-        observable.deleteObserver(obs1);
-        observable.deleteObserver(obs2);
-        observable.deleteObserver(obs3);
+        observable.removeObserver(obs1);
+        observable.removeObserver(obs2);
+        observable.removeObserver(obs3);
 	}
 
     @Test
@@ -53,7 +53,7 @@ public class StockQuoteObservableTest {
         assertEquals(19.20, observable.getHashmap().get("Stock42"));
         assertEquals(65.20, observable.getHashmap().get("Stock331"));
 
-        observable.deleteObserver(obs1);
+        observable.removeObserver(obs1);
 	}
 
 

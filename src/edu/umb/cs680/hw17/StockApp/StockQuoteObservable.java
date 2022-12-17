@@ -2,14 +2,13 @@ package edu.umb.cs680.hw17.StockApp;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Observable;
+import edu.umb.cs680.hw17.Observable;
 
-public class StockQuoteObservable extends Observable {
+public class StockQuoteObservable extends Observable<StockEvent> {
     private Map<String, Double> hashmap = new HashMap<String,Double>();
 
     public void changeQuote(String t, Double q){
         hashmap.put(t, q);
-        setChanged();
         notifyObservers(new StockEvent(t, q));
     }
 

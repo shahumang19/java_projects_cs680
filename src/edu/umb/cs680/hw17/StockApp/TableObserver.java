@@ -1,12 +1,12 @@
 package edu.umb.cs680.hw17.StockApp;
 
-import java.util.Observable;
-import java.util.Observer;
+import edu.umb.cs680.hw17.Observable;
+import edu.umb.cs680.hw17.Observer;
 
-public class TableObserver implements Observer {
+public class TableObserver implements Observer<StockEvent> {
 
     @Override
-    public void update(Observable o, Object arg) {
-        System.out.println("[Table Observer] - Ticker("+((StockEvent) arg).getTicker()+") - Quote("+((StockEvent) arg).getQuote()+")");
+    public void update(Observable<StockEvent> o, StockEvent arg) {
+        System.out.println("[Table Observer] - Ticker("+arg.getTicker()+") - Quote("+arg.getQuote()+")");
     }
 }
